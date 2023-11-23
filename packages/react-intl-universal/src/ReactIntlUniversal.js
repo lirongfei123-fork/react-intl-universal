@@ -81,6 +81,8 @@ class ReactIntlUniversal {
         }
         variables[i] = value;
       }
+    } else {
+      return msg;
     }
 
     try {
