@@ -1,4 +1,4 @@
-declare module "react-intl-universal" {
+declare module "@yinrui/react-intl-universal" {
     /**
      * Helper: determine user's locale via URL, cookie, and browser's language.
      * You may not need this API, if you have other rules to determine user's locale.

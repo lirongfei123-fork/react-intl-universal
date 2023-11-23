@@ -9,7 +9,7 @@ import * as constants from "./constants";
 import merge from "lodash.merge";
 
 String.prototype.defaultMessage = String.prototype.d = function (msg) {
-  return this || msg || "";
+  return (this || msg || "").toString();
 };
 
 class ReactIntlUniversal {
@@ -23,14 +23,16 @@ class ReactIntlUniversal {
       fallbackLocale: null, // Locale to use if a key is not found in the current locale
     };
   }
-
+  get(key, variables) {
+    return this._get(key, variables).toString();
+  }
   /**
    * Get the formatted message by key
    * @param {string} key The string representing key in locale data file
    * @param {Object} variables Variables in message
    * @returns {string} message
    */
-  get(key, variables) {
+  _get(key, variables) {
     if (this.options.intlGetHook) {
       try {
         this.options.intlGetHook(key, this.options.currentLocale);
